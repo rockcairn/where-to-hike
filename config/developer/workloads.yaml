@@ -15,9 +15,9 @@ spec:
   serviceClaims: null
   source:
     git:
-      url: <https URL for your generated project's Git repository>
+      url: https://github.com/rockcairn/where-to-hik.git
       ref:
-        branch: main
+        branch: master
     subPath: where-to-hike-api-gateway
 ---
 apiVersion: carto.run/v1alpha1
@@ -43,9 +43,9 @@ spec:
       name: rmq-where-to-hike
   source:
     git:
-      url: <https URL for your generated project's Git repository>
+      url: https://github.com/rockcairn/where-to-hik.git
       ref:
-        branch: main
+        branch: master
     subPath: where-to-hike-search
 ---
 apiVersion: carto.run/v1alpha1
@@ -70,9 +70,9 @@ spec:
       name: rmq-where-to-hike
   source:
     git:
-      url: <https URL for your generated project's Git repository>
+      url: https://github.com/rockcairn/where-to-hik.git
       ref:
-        branch: main
+        branch: master
     subPath: where-to-hike-search-proc
 ---
 apiVersion: carto.run/v1alpha1
@@ -97,9 +97,9 @@ spec:
       name: rmq-where-to-hike
   source:
     git:
-      url: <https URL for your generated project's Git repository>
+      url: https://github.com/rockcairn/where-to-hik.git
       ref:
-        branch: main
+        branch: master
     subPath: where-to-hike-notify
 ---
 apiVersion: carto.run/v1alpha1
@@ -125,9 +125,9 @@ spec:
       name: rmq-where-to-hike
   source:
     git:
-      url: <https URL for your generated project's Git repository>
+      url: https://github.com/rockcairn/where-to-hik.git
       ref:
-        branch: main
+        branch: master
     subPath: where-to-hike-availability
 ---
 apiVersion: carto.run/v1alpha1
@@ -147,7 +147,7 @@ spec:
       app.kubernetes.io/part-of: where-to-hike
   source:
     git:
-      url: <https URL for your generated project's Git repository>
+      url: https://github.com/rockcairn/where-to-hik.git
       ref:
-        branch: main
+        branch: master
     subPath: where-to-hike-ui
