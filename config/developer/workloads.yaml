@@ -15,7 +15,7 @@ spec:
   serviceClaims: null
   source:
     git:
-      url: https://github.com/rockcairn/where-to-hik.git
+      url: https://github.com/rockcairn/where-to-hike.git
       ref:
         branch: master
     subPath: where-to-hike-api-gateway
@@ -43,7 +43,7 @@ spec:
       name: rmq-where-to-hike
   source:
     git:
-      url: https://github.com/rockcairn/where-to-hik.git
+      url: https://github.com/rockcairn/where-to-hike.git
       ref:
         branch: master
     subPath: where-to-hike-search
@@ -70,7 +70,7 @@ spec:
       name: rmq-where-to-hike
   source:
     git:
-      url: https://github.com/rockcairn/where-to-hik.git
+      url: https://github.com/rockcairn/where-to-hike.git
       ref:
         branch: master
     subPath: where-to-hike-search-proc
@@ -97,7 +97,7 @@ spec:
       name: rmq-where-to-hike
   source:
     git:
-      url: https://github.com/rockcairn/where-to-hik.git
+      url: https://github.com/rockcairn/where-to-hike.git
       ref:
         branch: master
     subPath: where-to-hike-notify
@@ -125,7 +125,7 @@ spec:
       name: rmq-where-to-hike
   source:
     git:
-      url: https://github.com/rockcairn/where-to-hik.git
+      url: https://github.com/rockcairn/where-to-hike.git
       ref:
         branch: master
     subPath: where-to-hike-availability
@@ -147,7 +147,7 @@ spec:
       app.kubernetes.io/part-of: where-to-hike
   source:
     git:
-      url: https://github.com/rockcairn/where-to-hik.git
+      url: https://github.com/rockcairn/where-to-hike.git
       ref:
         branch: master
     subPath: where-to-hike-ui
