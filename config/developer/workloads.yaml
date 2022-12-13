@@ -1,0 +1,153 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: where-to-hike
+  namespace: apenner
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/part-of: where-to-hike-api-gateway
+spec:
+  env: null
+  params:
+  - name: annotations
+    value:
+      autoscaling.knative.dev/minScale: "1"
+  serviceClaims: null
+  source:
+    git:
+      url: <https URL for your generated project's Git repository>
+      ref:
+        branch: main
+    subPath: where-to-hike-api-gateway
+---
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: where-to-hike-search
+  namespace: apenner
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/part-of: where-to-hike-search
+    networking.knative.dev/visibility: cluster-local
+spec:
+  env: null
+  params:
+  - name: annotations
+    value:
+      autoscaling.knative.dev/minScale: "1"
+  serviceClaims:
+  - name: rmq
+    ref:
+      apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+      kind: ResourceClaim
+      name: rmq-where-to-hike
+  source:
+    git:
+      url: <https URL for your generated project's Git repository>
+      ref:
+        branch: main
+    subPath: where-to-hike-search
+---
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: where-to-hike-search-proc
+  namespace: apenner
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/part-of: where-to-hike-search-proc
+    networking.knative.dev/visibility: cluster-local
+spec:
+  params:
+  - name: annotations
+    value:
+      autoscaling.knative.dev/minScale: "1"
+  serviceClaims:
+  - name: rmq
+    ref:
+      apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+      kind: ResourceClaim
+      name: rmq-where-to-hike
+  source:
+    git:
+      url: <https URL for your generated project's Git repository>
+      ref:
+        branch: main
+    subPath: where-to-hike-search-proc
+---
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: where-to-hike-notify
+  namespace: apenner
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/part-of: where-to-hike-notify
+    networking.knative.dev/visibility: cluster-local
+spec:
+  params:
+  - name: annotations
+    value:
+      autoscaling.knative.dev/minScale: "1"
+  serviceClaims:
+  - name: rmq
+    ref:
+      apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+      kind: ResourceClaim
+      name: rmq-where-to-hike
+  source:
+    git:
+      url: <https URL for your generated project's Git repository>
+      ref:
+        branch: main
+    subPath: where-to-hike-notify
+---
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: where-to-hike-availability
+  namespace: apenner
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/part-of: where-to-hike-availability
+    networking.knative.dev/visibility: cluster-local
+spec:
+  env: null
+  params:
+  - name: annotations
+    value:
+      autoscaling.knative.dev/minScale: "1"
+  serviceClaims:
+  - name: rmq
+    ref:
+      apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+      kind: ResourceClaim
+      name: rmq-where-to-hike
+  source:
+    git:
+      url: <https URL for your generated project's Git repository>
+      ref:
+        branch: main
+    subPath: where-to-hike-availability
+---
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: where-to-hike-ui
+  namespace: apenner
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/part-of: where-to-hike-ui
+    networking.knative.dev/visibility: cluster-local
+spec:
+  params:
+  - name: annotations
+    value:
+      autoscaling.knative.dev/minScale: "1"
+      app.kubernetes.io/part-of: where-to-hike
+  source:
+    git:
+      url: <https URL for your generated project's Git repository>
+      ref:
+        branch: main
+    subPath: where-to-hike-ui

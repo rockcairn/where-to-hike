@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: where-to-hike-search
+  annotations:
+    "backstage.io/kubernetes-label-selector": "app.kubernetes.io/part-of=where-to-hike-search"
+spec:
+  type: service
+  lifecycle: experimental
+  owner: where-to-hike-team
+  system: where-to-hike
+  providesApis:
+    - where-to-hike-search
+  dependsOn: 
+    - resource:where-to-hike-db
+    - resource:where-to-hike-messaging
+    - component:where-to-hike-search-proc
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: where-to-hike-search
+  description: The Search API
+  tags:
+    - api
+    - tanzu
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: where-to-hike-team
+  system: where-to-hike
+  definition:
+    $text: https://where-to-hike.perfect300rock.com/api/search/v3/api-docs/

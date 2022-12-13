@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: where-to-hike-team
+  description: The where-to-hike app team
+spec:
+  type: team
+  profile:
+    displayName: Where to Hike dev team
+    email: where-to-hike@example.com
+  children: []
+    

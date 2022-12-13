@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: where-to-hike-catalog-info
+  description: "Catalog for the 'Where to Hike' application"
+  annotations:
+    'backstage.io/techdocs-ref': dir:.
+spec:
+  targets:
+    - ./components/where-to-hike-api-gateway/where-to-hike-api-gateway.yaml  
+    - ./components/where-to-hike-ui/where-to-hike-ui.yaml
+    - ./components/where-to-hike-search/where-to-hike-search.yaml
+    - ./components/where-to-hike-search-proc/where-to-hike-search-proc.yaml
+    - ./components/where-to-hike-availability/where-to-hike-availability.yaml
+    - ./components/where-to-hike-notify/where-to-hike-notify.yaml
+    - ./groups/org.yaml
+    - ./systems/where-to-hike-system.yaml
+    - ./resources/db/where-to-hike-db-resource.yaml
+    - ./resources/messaging/where-to-hike-messaging-resource.yaml  

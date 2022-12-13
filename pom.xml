@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd ">
+    <groupId>com.example</groupId>    
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>where-to-hike-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>where-to-hike-parent</name>
+    <description>'Where to Hike' dining search application.</description>
+    <modules>
+
+
+
+
+        <module>./where-to-hike-api-gateway</module>
+        <module>./where-to-hike-search</module>
+        <module>./where-to-hike-search-proc</module>
+        <module>./where-to-hike-notify</module>
+        <module>./where-to-hike-availability</module>
+        <module>./where-to-hike-crawler</module>
+  </modules>	 
+</project>

@@ -1,0 +1,11 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: where-to-hike
+spec:
+  virtualhost:
+    fqdn: where-to-hike.perfect300rock.com
+  routes:
+    - services:
+      - name: where-to-hike-api-gateway
+        port: 80

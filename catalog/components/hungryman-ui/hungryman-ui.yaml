@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: where-to-hike-ui
+  annotations:
+    "backstage.io/kubernetes-label-selector": "app.kubernetes.io/part-of=where-to-hike-ui"
+spec:
+  type: service
+  lifecycle: experimental
+  owner: where-to-hike-team
+  system: where-to-hike
+  dependsOn: 
+    - component:where-to-hike-search
+    - component:where-to-hike-availability

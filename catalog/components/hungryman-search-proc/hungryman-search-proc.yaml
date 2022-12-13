@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: where-to-hike-search-proc
+  annotations:
+    "backstage.io/kubernetes-label-selector": "app.kubernetes.io/part-of=where-to-hike-search-proc"
+spec:
+  type: service
+  lifecycle: experimental
+  owner: where-to-hike-team
+  system: where-to-hike
+  dependsOn: 
+    - resource:where-to-hike-messaging

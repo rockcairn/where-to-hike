@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: where-to-hike-messaging
+  description: Where to Hike application async messaging
+spec:
+  type: message-broker
+  owner: where-to-hike-team
+  system: where-to-hike

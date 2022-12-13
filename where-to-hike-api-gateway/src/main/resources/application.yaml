@@ -1,0 +1,65 @@
+where-to-hike:
+  namespace: ${spring.cloud.kubernetes.client.namespace}
+  ui:
+    uri: http://where-to-hike-ui.${where-to-hike.namespace}/
+  search:
+    uri: http://where-to-hike-search.${where-to-hike.namespace}/
+  availability:
+    uri: http://where-to-hike-availability.${where-to-hike.namespace}/
+
+spring:
+  session:
+    timeout: 60m
+  cloud:
+    gateway:
+      forwarded.enabled: false
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods: "*"
+      routes:
+      - id: where-to-hike_search_route
+        uri: ${where-to-hike.search.uri}
+        predicates:
+        - Path=/api/search/**      
+        - Host=where-to-hike**.**
+        filters:
+        - TokenRelay=
+        - RewritePath=/api/search(?<segment>/?.*), $\{segment}
+        - RemoveRequestHeader=Forwarded
+      - id: where-to-hike_availability_route
+        uri: ${where-to-hike.availability.uri}
+        predicates:
+        - Path=/api/availability/** 
+        - Host=where-to-hike**.**
+        filters:
+        - TokenRelay=
+        - RewritePath=/api/availability(?<segment>/?.*), $\{segment}
+        - RemoveRequestHeader=Forwarded
+      - id: where-to-hike_ui_route
+        uri: ${where-to-hike.ui.uri}
+        predicates:
+        - Host=where-to-hike**.**
+        - Path=/diningsearch
+      - id: where-to-hike_ui_route
+        uri: ${where-to-hike.ui.uri}
+        predicates:
+        - Host=where-to-hike**.**
+        - Path=/**
+
+---
+spring:
+  profiles: local
+
+
+#Local profile forwards to local instances  
+where-to-hike:
+  namespace: workloads
+  ui:
+    uri: http://localhost:3000/   # default used by npm start
+  search:
+    uri: http://localhost:8081/
+  availability:
+    uri: http://localhost:8082/

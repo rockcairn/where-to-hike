@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: where-to-hike-search
+  annotations:
+    github.com/project-slug: sample-acclerators/where-to-hike-search
+    "backstage.io/kubernetes-label-selector": "app.kubernetes.io/part-of=where-to-hike"
+spec:
+  type: service
+  lifecycle: experimental
+  owner: meyerg@vmware.com

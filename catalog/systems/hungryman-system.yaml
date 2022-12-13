@@ -1,0 +1,7 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: where-to-hike
+  description: Where to Hike Application
+spec:
+  owner: where-to-hike-team

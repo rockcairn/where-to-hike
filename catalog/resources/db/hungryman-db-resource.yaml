@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: where-to-hike-db
+  description: Where to Hike application database
+spec:
+  type: database
+  owner: where-to-hike-team
+  system: where-to-hike
